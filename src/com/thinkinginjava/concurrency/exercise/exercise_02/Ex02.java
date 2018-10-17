@@ -1,11 +1,5 @@
-package com.thinkinginjava.concurrency.exercise_02;
+package com.thinkinginjava.concurrency.exercise.exercise_02;
 
-/**
- * page 656
- *  练习2 遵循generic/Fibonacci.java的形式（在Thinking in Java的示例代码中），
- *  创建一个任务，它可以产生由n个斐波那契数字组成的序列，其中n是通过任务的构造器而提供的。
- *  使用线程创建大量的这种任务并驱动它们。
- */
 class FibonacciA implements Runnable{
     private int n=0;
     public  FibonacciA(int n){
@@ -18,11 +12,11 @@ class FibonacciA implements Runnable{
     }
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName()+">> start");
+        System.out.println(Thread.currentThread().getName()+">> A start");
         for (int i=1;i<=n;i++){
             System.out.println(Thread.currentThread().getName()+"-----> "+fb(i));
         }
-        System.out.println(Thread.currentThread().getName()+">> end");
+        System.out.println(Thread.currentThread().getName()+">> A end");
     }
 }
 class FibonacciB implements Runnable{
@@ -37,11 +31,11 @@ class FibonacciB implements Runnable{
     }
     @Override
     public void run() {
-        System.out.println(Thread.currentThread().getName()+">> start");
+        System.out.println(Thread.currentThread().getName()+">> B start");
         for (int i=1;i<=n;i++){
             System.out.println(Thread.currentThread().getName()+"-----> "+fb(i));
         }
-        System.out.println(Thread.currentThread().getName()+">> end");
+        System.out.println(Thread.currentThread().getName()+">> B end");
     }
 }
 
