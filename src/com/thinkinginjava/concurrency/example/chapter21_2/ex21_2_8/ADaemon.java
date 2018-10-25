@@ -14,7 +14,7 @@ public class ADaemon implements Runnable {
         } catch (InterruptedException e) {
             System.out.println("Exiting via InterruptedException");
         } finally {
-            System.out.println("This should always run?");
+            System.out.println(Thread.currentThread().isDaemon()+"  This should always run?");
         }
     }
 }
