@@ -24,7 +24,7 @@ public class Ex10_B {
             fibb1.exec.shutdown();
         }
 
-        System.out.println("-------------------------------");
+        System.out.println("---------------为什么会出现i赋值给n混乱的情况----------------");
 
         FibonacciB fibb2 = new FibonacciB();
         List<Future<Integer>> list = new ArrayList<>();
