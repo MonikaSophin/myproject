@@ -8,6 +8,12 @@ public class EvenChecker implements Runnable {
     public EvenChecker(IntGenerator g) {
         generator = g;
     }
+    /**
+     * 两个或更多的任务竞争响应某个条件，因此产生冲突或不一致结果的情况。
+     * 所以必须仔细考虑并防范并发系统失败的所有可能途径，
+     * 例如，一个任务不能依赖另一个任务，因为任务关闭的顺序无法得到保证。
+     * 这里通过使任务依赖于非任务对象，这样可以消除潜在的竞争条件。
+     */
     @Override
     public void run() {
         //generator,isCanceled=false;则进入
