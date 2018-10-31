@@ -2,7 +2,8 @@ package com.thinkinginjava.operators.exercise;
 
 import com.thinkinginjava.operators.example.chapter3_1.Print;
 
-/**
+/**page 40
+ *
  * 创建一个包含float域的类，并用这个类展示别名机制。
  */
 class Level{

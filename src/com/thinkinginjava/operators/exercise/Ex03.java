@@ -2,6 +2,10 @@ package com.thinkinginjava.operators.exercise;
 
 import com.thinkinginjava.operators.example.chapter3_1.Print;
 
+/**page 41
+ *
+ * 练习3：创建一个包含一个float域的类，并用这个类来展示方法调用时的别名机制。
+ */
 class Flower{
     float f;
 }
