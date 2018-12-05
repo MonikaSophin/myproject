@@ -1,4 +1,4 @@
-package com.monika.jdk8.new_java_tools.nashorn_engine_.jjs;
+package com.monika.jdk8.new_java_tools.nashorn_engine_jjs;
 
 /**
  * @author: XueYing.Cao
