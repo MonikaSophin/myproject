@@ -24,14 +24,45 @@ class OrderArray2 {
     }
 
     public void insert(long value) {
-        int j;
-        for (j = 0; j < nElems; j++)
-            if (a[j] > value)
-                break;
-        for (int k = nElems; k > j; k--) //比待插入值大的数值向后移动
-            a[k] = a[k - 1];
-        a[j] = value;
-        nElems++;
+        if (nElems == 0) {//当数组内无元素时，直接插入
+            a[nElems] = value;
+            nElems++;
+        } else {
+            int lowerBound = 0;
+            int upperBound = nElems - 1;
+
+            int middle;//每次二分查找范围时，中间的下标。
+            while (true) {
+                middle = (lowerBound + upperBound) / 2;
+                if (lowerBound > upperBound)
+                    break;
+                if (value == a[middle]){
+                    break;
+                }else if (value > a[middle]) {
+                    if (middle == nElems - 1) {//若中间值到了最后一位
+                        middle = middle + 1;
+                        break;
+                    } else if (value <= a[middle + 1]) { // a[middle]<插入值<=a[middle+1]
+                        middle = middle + 1;
+                        break;
+                    } else {
+                        lowerBound = middle + 1;
+                    }
+                }else{
+                    if (middle == 0){//若中间值到了第一位
+                        break;
+                    }else if (value >= a[middle - 1]){ // a[middle-1]<=插入值<a[middle]
+                        break;
+                    }else {
+                        upperBound = middle - 1;
+                    }
+                }
+            }
+            for (int k = nElems; k > middle; k--) //比待插入值大的数值向后移动
+                a[k] = a[k - 1];
+            a[middle] = value;
+            nElems++;
+        }
     }
 
     public int find(long searchKey) {
@@ -65,21 +96,62 @@ class OrderArray2 {
             return true;
         }
     }
-    
-    public static int[] merge(int[] a ,int[] b){
-        if (a.length >= b.length){
-            for (int i = 0; i < b.length; i++) {
-                // TODO: 2018/12/21  
-            }
-        }
-        return null;
-    }
 
     public void display(){
         for (int i = 0; i < nElems; i++)
             System.out.print(a[i] + " ");
         System.out.println();
     }
+
+    public OrderArray2 merge(OrderArray2 arr2){
+        //假设数据项总是足够
+        OrderArray2 dist = new OrderArray2(this.nElems + arr2.nElems); //目标的数组
+        for (int i = 0; i < this.nElems; i++)
+            dist.insert(this.a[i]);
+
+        for (int i = 0; i < arr2.nElems; i++)
+            dist.insert(arr2.a[i]);
+        return dist;
+    }
 }
+
 public class Ex2_5 {
+    public static void main(String[] args) {
+        int maxSize = 100;
+        OrderArray2 arr = new OrderArray2(maxSize);
+
+        arr.insert(77);
+        arr.insert(99);
+        arr.insert(44);
+        arr.insert(55);
+        arr.insert(22);
+        arr.insert(88);
+        arr.insert(11);
+        arr.insert(00);
+        arr.insert(66);
+        arr.insert(33);
+        arr.display();
+
+
+        OrderArray2 arr2 = new OrderArray2(maxSize);
+        arr2.insert(777);
+        arr2.insert(999);
+        arr2.insert(44);
+        arr2.insert(555);
+        arr2.insert(22);
+        arr2.insert(888);
+        arr2.insert(11);
+        arr2.insert(00);
+        arr2.insert(666);
+        arr2.insert(33);
+        arr2.display();
+
+        OrderArray2 merge = arr.merge(arr2);
+        merge.display();
+    }
 }
+/**output:
+ * 0 11 22 33 44 55 66 77 88 99
+ * 0 11 22 33 44 555 666 777 888 999
+ * 0 0 11 11 22 22 33 33 44 44 55 66 77 88 99 555 666 777 888 999
+ */

@@ -50,11 +50,26 @@ class HighArray {
         }
     }
 
+    //解法1：
     public long getMax() {
+        long max = -1;//设置最大值
         if (nElems == 0)
             return -1;
         else {
-            long[] b = Arrays.copyOf(a,nElems);
+            for (int i = 0; i < nElems; i++) {
+                if (a[i] > max)
+                    max = a[i];
+            }
+        }
+        return max;
+    }
+
+    //解法2：
+    public long getMax2() {
+        if (nElems == 0)
+            return -1;
+        else {
+            long[] b = Arrays.copyOf(a, nElems);
             for (int i = 0; i < nElems; i++) {
                 if (b[0] < b[i])
                     b[0] = b[i];
@@ -88,13 +103,7 @@ public class Ex2_1 {
         arr.insert(33);
 
         arr.display();
-       System.out.println("getMax() " + arr.getMax());
-
-        int searchkey = 35;
-        if (arr.find(searchkey))
-            System.out.println("Found " + searchkey);
-        else
-            System.out.println("Can't find " + searchkey);
+        System.out.println("getMax() " + arr.getMax());
 
         arr.delete(00);
         arr.delete(55);
@@ -104,10 +113,10 @@ public class Ex2_1 {
         System.out.println("getMax() " + arr.getMax());
     }
 }
-/**输出：
+/**
+ * 输出：
  * 77 99 44 55 22 88 11 0 66 33
  * getMax() 99
- * Can't find 35
  * 77 44 22 88 11 66 33
  * getMax() 88
  */

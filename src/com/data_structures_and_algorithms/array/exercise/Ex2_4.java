@@ -20,24 +20,59 @@ class OrderArray {
         return nElems;
     }
 
+    /**
+     * 使用二分查找算法插入值时（以从小到大的顺序来说明），
+     * 令数组为a，长度为length，插入值为insert，中间值下标m
+     * 当 insert==a[m] 插入到下标m位置。
+     * 当 a[0]<=insert<a[m]
+     *       若m==0，插入到下标'0'位置。
+     *       若中间值下标'm'没有移动到'0'位置，则需要确定 a[m-1]<=insert<a[m] 才能将inert插入到下标'm'位置。
+     *       否则，再次二分
+     * 当 a[m]<insert<=a[length-1]
+     *       若m==length-1，则认为插入值大于现有数组最大值，插入到下标'm+1'位置。
+     *       若中间值下标'm'没有移动到'length-1'位置,则需要确定 a[m]<insert<=a[m+1] 才能将insert插入到下标'm+1'位置。
+     *       否则，再次二分
+     */
     public void insert(long value) {
-        int lowerBound = 0;
-        int upperBound = nElems - 1;
+        if (nElems == 0) {//当数组内无元素时，直接插入
+            a[nElems] = value;
+            nElems++;
+        } else {
+            int lowerBound = 0;
+            int upperBound = nElems - 1;
 
-        int middle;//每次二分查找范围时，中间的下标。
-        while(true){
-            middle = (lowerBound + upperBound) / 2;
-            if (lowerBound >= upperBound)
-                break;
-            if (value >= a[middle])
-                lowerBound = middle + 1;
-            else
-                upperBound = middle - 1;
+            int middle;//每次二分查找范围时，中间的下标。
+            while (true) {
+                middle = (lowerBound + upperBound) / 2;
+                if (lowerBound > upperBound)
+                    break;
+                if (value == a[middle]){
+                    break;
+                }else if (value > a[middle]) {
+                    if (middle == nElems - 1) {//若中间值到了最后一位
+                        middle = middle + 1;
+                        break;
+                    } else if (value <= a[middle + 1]) { // a[middle]<插入值<=a[middle+1]
+                        middle = middle + 1;
+                        break;
+                    } else {
+                        lowerBound = middle + 1;
+                    }
+                }else{
+                    if (middle == 0){//若中间值到了第一位
+                        break;
+                    }else if (value >= a[middle - 1]){ // a[middle-1]<=插入值<a[middle]
+                        break;
+                    }else {
+                        upperBound = middle - 1;
+                    }
+                }
+            }
+            for (int k = nElems; k > middle; k--) //比待插入值大的数值向后移动
+                a[k] = a[k - 1];
+            a[middle] = value;
+            nElems++;
         }
-        for (int k = nElems; k > middle ; k--) //比待插入值大的数值向后移动
-            a[k] = a[k - 1];
-        a[middle] = value;
-        nElems++;
     }
 
     public int find(long searchKey) {
@@ -53,9 +88,9 @@ class OrderArray {
                 return -1;
             else {
                 if (a[middle] > searchKey)
-                    upperBound = middle -1;
+                    upperBound = middle - 1;
                 else
-                    lowerBound = middle +1;
+                    lowerBound = middle + 1;
             }
         }
     }
@@ -67,12 +102,12 @@ class OrderArray {
         } else {
             for (int k = index; k < nElems; k++)//将删除后的空洞给填补上。
                 a[k] = a[k + 1];
-            nElems --;
+            nElems--;
             return true;
         }
     }
 
-    public void display(){
+    public void display() {
         for (int i = 0; i < nElems; i++)
             System.out.print(a[i] + " ");
         System.out.println();
@@ -98,12 +133,6 @@ public class Ex2_4 {
 
         arr.display();
 
-        int searchkey = 35;
-        if(arr.find(searchkey) != -1)
-            System.out.println("Found " +searchkey + " at index " + arr.find(searchkey));
-        else
-            System.out.println("Can't find " + searchkey);
-
         arr.delete(00);
         arr.delete(55);
         arr.delete(99);
@@ -111,3 +140,7 @@ public class Ex2_4 {
         arr.display();
     }
 }
+/**输出：
+ * 0 11 22 33 44 55 66 77 88 99
+ * 11 22 33 44 66 77 88
+ */

@@ -51,46 +51,33 @@ class HighArray3 {
         }
     }
 
-    public long getMax() {
-        if (nElems == 0)
-            return -1;
-        else {
-            long[] b = Arrays.copyOf(a, nElems);
-            for (int i = 0; i < nElems; i++) {
-                if (b[0] < b[i])
-                    b[0] = b[i];
-            }
-            return b[0];
-        }
-    }
-
-    public long removeMax() {
-        if (nElems == 0)
-            return -1;
-        else {
-            long[] b = Arrays.copyOf(a, nElems);
-            for (int i = 0; i < nElems; i++) {
-                for (int j = i + 1; j < nElems; j++) {
-                    if (b[i] < b[j]) {
-                        long temp = b[i];
-                        b[i] = b[j];
-                        b[j] = temp;
-                    }
-                }
-            }
-            //删除
-            delete(b[0]);
-            return b[0];
-        }
-    }
-
     public void display() {
         for (int i = 0; i < nElems; i++)
             System.out.print(a[i] + " ");
         System.out.println();
     }
 
+    public long removeMax(){
+        if (nElems == 0)
+            return -1;
+        else{
+            long max = -1;//设置最大值
+            int index = -1;//设置最大值下标
+            for (int i = 0; i < nElems; i++) {
+                if (a[i] > max){
+                    max = a[i];
+                    index = i;
+                }
+            }
+            for (int k = index; k < nElems; k++)
+                a[k] = a[k + 1];
+            nElems--;
+            return max;
+        }
+    }
+
     //逆序排序(选择排序)
+    //方法一：
     public void reverseDisplay() {
         long[] b = Arrays.copyOf(a, nElems);
         for (int i = 0; i < nElems; i++) {
@@ -107,6 +94,17 @@ class HighArray3 {
         }
         System.out.println();
     }
+
+    //方法二：
+    public void reverseDisplay2(){
+        HighArray3 highArray3 = new HighArray3(nElems);
+        while(nElems > 0){
+            long max = removeMax();
+            highArray3.insert(max);
+        }
+        highArray3.display();
+    }
+
 }
 
 public class Ex2_3 {
@@ -129,12 +127,6 @@ public class Ex2_3 {
         arr.display();
         arr.reverseDisplay();
 
-        int searchkey = 35;
-        if (arr.find(searchkey))
-            System.out.println("Found " + searchkey);
-        else
-            System.out.println("Can't find " + searchkey);
-
         arr.delete(00);
         arr.delete(55);
         arr.delete(99);
@@ -147,7 +139,6 @@ public class Ex2_3 {
  * 输出：
  * 77 99 44 55 22 88 11 0 66 33
  * 99 88 77 66 55 44 33 22 11 0
- * Can't find 35
  * 77 44 22 88 11 66 33
  * 88 77 66 44 33 22 11
  */

@@ -52,26 +52,58 @@ class HighArray4 {
         }
     }
 
-    public void noDup(){
-        for (int i = 0; i < nElems; i++)
-            for (int j = i + 1; j < nElems; j++)
-                if (a[i] == a[j])
-                    a[j] = -1;
-
-        for (int i = 0; i < nElems; i++)
-            if (a[i] == -1){
-                for (int k = i; k < nElems; k++){
-                    if (a[k] == -1)
-                    a[k] = a[k + 1];
-                }
-                nElems--;
-            }
-    }
-
     public void display() {
         for (int i = 0; i < nElems; i++)
             System.out.print(a[i] + " ");
         System.out.println();
+    }
+
+    /**
+     * 方法一：
+     * 思路 找出重复的元素，并赋值为NULL
+     * 在去除重复元素时，进行覆盖NULL元素需要注意出现连续为NULL元素的情况。
+     */
+    public void noDup() {
+        int NULL = -1;//重复元素的标识
+        for (int i = 0; i < nElems; i++)
+            for (int j = i + 1; j < nElems; j++)
+                if (a[i] != NULL && a[i] == a[j])
+                    a[j] = NULL;
+
+        for (int i = 0; i < nElems; ) {
+            if (a[i] == NULL) {//移动完成后没有进行i++,而是继续判断移动后的当前位置元素是否为NULL
+                for (int j = i; j < nElems; j++)
+                    a[j] = a[j + 1];
+                nElems--;
+            } else {
+                i++;//若不为NULL，则直接i++
+            }
+        }
+    }
+
+    /**
+     * 方法二：
+     * 思路： 将不是NULL的元素，直接移动a[0]、a[1]、a[3]...以此类推。
+     *    类似一种临时缓冲数组的思路。 只不过使用的是同一个数组，将满足条件的数组元素进行缓冲。
+     */
+    public void noDup2() {
+        int NULL = -1;
+        for (int i = 0; i < nElems; i++) {
+            for (int j = i + 1; j < nElems; j++)
+                if (a[i] != NULL && a[i] == a[j])
+                    a[j] = NULL;
+        }
+
+        int temp = 0;//临时数组下标
+        for (int i = 0; i < nElems; i++) {
+            if (a[i] != NULL) {
+                if (i > temp){
+                    a[temp] = a[i];
+                }
+                temp++;
+            }
+        }
+        nElems = temp;//将不为NULL的元素个数 赋值给 全局变量nElems。
     }
 }
 
@@ -88,7 +120,11 @@ public class Ex2_6 {
         }
         arr.display();
 
-        arr.noDup();
+        arr.noDup2();
         arr.display();
     }
 }
+/**输出：
+ * 3 3 2 3 2 3 2 3 1 2
+ * 3 2 1
+ */

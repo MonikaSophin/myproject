@@ -49,20 +49,28 @@ class HighArray2 {
         }
     }
 
-    public long getMax() {
+    //解法1：
+    public long removeMax(){
         if (nElems == 0)
             return -1;
-        else {
-            long[] b = Arrays.copyOf(a, nElems);
+        else{
+            long max = -1;//设置最大值
+            int index = -1;//设置最大值下标
             for (int i = 0; i < nElems; i++) {
-                if (b[0] < b[i])
-                    b[0] = b[i];
+                if (a[i] > max){
+                    max = a[i];
+                    index = i;
+                }
             }
-            return b[0];
+            for (int k = index; k < nElems; k++)
+                a[k] = a[k + 1];
+            nElems--;
+            return max;
         }
     }
 
-    public long removeMax() {
+    //解法2：
+    public long removeMax2() {
         if (nElems == 0)
             return -1;
         else {
@@ -81,6 +89,7 @@ class HighArray2 {
             return b[0];
         }
     }
+
 
     public void display() {
         for (int i = 0; i < nElems; i++)
@@ -109,12 +118,7 @@ public class Ex2_2 {
         arr.display();
         System.out.println("removeMax() " + arr.removeMax());
         arr.display();
-
-        int searchkey = 35;
-        if (arr.find(searchkey))
-            System.out.println("Found " + searchkey);
-        else
-            System.out.println("Can't find " + searchkey);
+        System.out.println();
 
         arr.delete(00);
         arr.delete(55);
@@ -130,7 +134,7 @@ public class Ex2_2 {
  * 77 99 44 55 22 88 11 0 66 33
  * removeMax() 99
  * 77 44 55 22 88 11 0 66 33
- * Can't find 35
+ *
  * 77 44 22 88 11 66 33
  * removeMax() 88
  * 77 44 22 11 66 33
