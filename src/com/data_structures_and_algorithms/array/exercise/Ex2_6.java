@@ -97,10 +97,10 @@ class HighArray4 {
         int temp = 0;//临时数组下标
         for (int i = 0; i < nElems; i++) {
             if (a[i] != NULL) {
-                if (i > temp){
-                    a[temp] = a[i];
-                }
+                a[temp] = a[i];
                 temp++;
+                // =等价于=>
+                // a[temp++] = a[i];
             }
         }
         nElems = temp;//将不为NULL的元素个数 赋值给 全局变量nElems。
