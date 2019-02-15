@@ -11,7 +11,7 @@ public class UnboundedWildcards1 {
     list1 = list;
     list2 = list;
     // 警告：未经检查的转化。找到：List，必填：List<？ extends Object>
-    // list3 = list;
+    list3 = list;
   }
   static void assign2(List<?> list) {
     list1 = list;
