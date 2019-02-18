@@ -2,7 +2,6 @@ package com.thinkinginjava.generics.example.chapter15_17.ex15_17_1;
 
 import com.thinkinginjava.generics.example.chapter15_16.Robot;
 import java.lang.reflect.Method;
-import java.util.Date;
 
 /**
  * @author: XueYing.Cao
