@@ -50,7 +50,6 @@ public class LatentReflection {
         CommunicateReflectively.perform(new SmartDog());
         CommunicateReflectively.perform(new Robot());
         CommunicateReflectively.perform(new Mime());
-        System.out.println(new Date().getTime());
     }
 }
 /**output:
