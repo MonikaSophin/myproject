@@ -9,22 +9,20 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
-// Different types of function objects:
+// 不同类型的功能对象:
 interface Combiner<T> { T combine(T x, T y); }
 
 interface UnaryFunction<R,T> { R function(T x); }
 
 interface Collector<T> extends UnaryFunction<T,T> {
-  T result(); // Extract result of collecting parameter
+  T result(); // 提取采集参数的结果
 }
 
 interface UnaryPredicate<T> { boolean test(T x); }
 
 public class Functional {
-  // Calls the Combiner object on each element to combine
-  // it with a running result, which is finally returned:
-  public static <T> T
-  reduce(Iterable<T> seq, Combiner<T> combiner) {
+  // Extract调用每个元素上的Combiner对象，将其与运行的结果结合起来，最终返回:收集参数的result
+  public static <T> T reduce(Iterable<T> seq, Combiner<T> combiner) {
     Iterator<T> it = seq.iterator();
     if(it.hasNext()) {
       T result = it.next();
@@ -32,88 +30,73 @@ public class Functional {
         result = combiner.combine(result, it.next());
       return result;
     }
-    // If seq is the empty list:
-    return null; // Or throw exception
+    // 如果seq是空列表:
+    return null; // 或抛出异常
   }
-  // Take a function object and call it on each object in
-  // the list, ignoring the return value. The function
-  // object may act as a collecting parameter, so it is
-  // returned at the end.
-  public static <T> Collector<T>
-  forEach(Iterable<T> seq, Collector<T> func) {
+  // 获取一个函数对象，并在列表中的每个对象上调用它，忽略返回值。
+  // 函数对象可以作为一个收集参数，因此它在最后被返回。
+  public static <T> Collector<T> forEach(Iterable<T> seq, Collector<T> func) {
     for(T t : seq)
       func.function(t);
     return func;
   }
-  // Creates a list of results by calling a
-  // function object for each object in the list:
-  public static <R,T> List<R>
-  transform(Iterable<T> seq, UnaryFunction<R,T> func) {
+  // 通过为列表中的每个对象调用函数对象来创建结果列表:
+  public static <R,T> List<R> transform(Iterable<T> seq, UnaryFunction<R,T> func) {
     List<R> result = new ArrayList<R>();
     for(T t : seq)
       result.add(func.function(t));
     return result;
   }
-  // Applies a unary predicate to each item in a sequence,
-  // and returns a list of items that produced "true":
-  public static <T> List<T>
-  filter(Iterable<T> seq, UnaryPredicate<T> pred) {
+  // 将一元谓词应用于序列中的每个项，并返回生成“true”的项列表:
+  public static <T> List<T> filter(Iterable<T> seq, UnaryPredicate<T> pred) {
     List<T> result = new ArrayList<T>();
     for(T t : seq)
       if(pred.test(t))
         result.add(t);
     return result;
   }
-  // To use the above generic methods, we need to create
-  // function objects to adapt to our particular needs:
+
+  // 为了使用上述通用方法，我们需要创建函数对象来适应我们的特殊需要:
   static class IntegerAdder implements Combiner<Integer> {
     public Integer combine(Integer x, Integer y) {
       return x + y;
     }
   }
-  static class
-  IntegerSubtracter implements Combiner<Integer> {
+  static class IntegerSubtracter implements Combiner<Integer> {
     public Integer combine(Integer x, Integer y) {
       return x - y;
     }
   }
-  static class
-  BigDecimalAdder implements Combiner<BigDecimal> {
+  static class BigDecimalAdder implements Combiner<BigDecimal> {
     public BigDecimal combine(BigDecimal x, BigDecimal y) {
       return x.add(y);
     }
   }
-  static class
-  BigIntegerAdder implements Combiner<BigInteger> {
+  static class BigIntegerAdder implements Combiner<BigInteger> {
     public BigInteger combine(BigInteger x, BigInteger y) {
       return x.add(y);
     }
   }
-  static class
-  AtomicLongAdder implements Combiner<AtomicLong> {
+  static class AtomicLongAdder implements Combiner<AtomicLong> {
     public AtomicLong combine(AtomicLong x, AtomicLong y) {
-      // Not clear whether this is meaningful:
+      // 不清楚这是否有意义:
       return new AtomicLong(x.addAndGet(y.get()));
     }
   }
-  // We can even make a UnaryFunction with an "ulp"
-  // (Units in the last place):
-  static class BigDecimalUlp
-  implements UnaryFunction<BigDecimal,BigDecimal> {
+  //我们甚至可以用“ulp”(最后一个单位)来实现UnaryFunction:
+  static class BigDecimalUlp implements UnaryFunction<BigDecimal,BigDecimal> {
     public BigDecimal function(BigDecimal x) {
       return x.ulp();
     }
   }
-  static class GreaterThan<T extends Comparable<T>>
-  implements UnaryPredicate<T> {
+  static class GreaterThan<T extends Comparable<T>> implements UnaryPredicate<T> {
     private T bound;
     public GreaterThan(T bound) { this.bound = bound; }
     public boolean test(T x) {
       return x.compareTo(bound) > 0;
     }
   }
-  static class MultiplyingIntegerCollector
-  implements Collector<Integer> {
+  static class MultiplyingIntegerCollector implements Collector<Integer> {
     private Integer val = 1;
     public Integer function(Integer x) {
       val *= x;
@@ -121,8 +104,9 @@ public class Functional {
     }
     public Integer result() { return val; }
   }
+
   public static void main(String[] args) {
-    // Generics, varargs & boxing working together:
+    // 泛型，varargs和自动装箱机制一起工作:
     List<Integer> li = Arrays.asList(1, 2, 3, 4, 5, 6, 7);
     Integer result = reduce(li, new IntegerAdder());
     System.out.println(result);
@@ -145,11 +129,10 @@ public class Functional {
     BigDecimal rbd = reduce(lbd, new BigDecimalAdder());
     System.out.println(rbd);
 
-    System.out.println(filter(lbd,
-      new GreaterThan<BigDecimal>(new BigDecimal(3))));
+    System.out.println(filter(lbd, new GreaterThan<>(new BigDecimal(3))));
 
-    // Use the prime-generation facility of BigInteger:
-    List<BigInteger> lbi = new ArrayList<BigInteger>();
+    // 使用BigInteger的prime-generation工具:
+    List<BigInteger> lbi = new ArrayList<>();
     BigInteger bi = BigInteger.valueOf(11);
     for(int i = 0; i < 11; i++) {
       lbi.add(bi);
@@ -159,7 +142,7 @@ public class Functional {
 
     BigInteger rbi = reduce(lbi, new BigIntegerAdder());
     System.out.println(rbi);
-    // The sum of this list of primes is also prime:
+    // 这些素数的和也是素数:
     System.out.println(rbi.isProbablePrime(5));
 
     List<AtomicLong> lal = Arrays.asList(
@@ -170,17 +153,18 @@ public class Functional {
 
     System.out.println(transform(lbd,new BigDecimalUlp()));
   }
-} /* Output:
-28
--26
-[5, 6, 7]
-5040
-210
-11.000000
-[3.300000, 4.400000]
-[11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
-311
-true
-265
-[0.000001, 0.000001, 0.000001, 0.000001]
-*///:~
+}
+/**Output:
+ * 28
+ * -26
+ * [5, 6, 7]
+ * 5040
+ * 210
+ * 11.000000
+ * [3.300000, 4.400000]
+ * [11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
+ * 311
+ * true
+ * 265
+ * [0.000001, 0.000001, 0.000001, 0.000001]
+ */
