@@ -10,13 +10,6 @@ import java.util.List;
  * @Version: 1.0
  * @Description:
  */
-class BerylliumSphere {
-    private static long counter;
-    private final long id = counter++;
-    @Override
-    public String toString() { return "Shpere " + id; }
-}
-
 public class ContainerComparison {
     public static void main(String[] args) {
         BerylliumSphere[] spheres = new BerylliumSphere[10];
