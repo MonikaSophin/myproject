@@ -8,8 +8,8 @@ package com.thinkinginjava.holding_objects.example.chapter11_8;
  */
 public class StackCollision {
     public static void main(String[] args) {
-        com.thinkinginjava.holding_objects.example.chapter11_8.Stack<String> stack =
-                new com.thinkinginjava.holding_objects.example.chapter11_8.Stack();
+        com.thinkinginjava.util.Stack<String> stack =
+                new com.thinkinginjava.util.Stack();
         for(String s : "My dog has fleas".split(" "))
             stack.push(s);
         while(!stack.empty())

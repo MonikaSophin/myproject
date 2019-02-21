@@ -1,6 +1,6 @@
 package com.thinkinginjava.generics.example.chapter15_4.ex15_4_6;
 
-import com.thinkinginjava.generics.example.chapter15_4.ex15_4_6.util.Sets;
+import com.thinkinginjava.util.Sets;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;

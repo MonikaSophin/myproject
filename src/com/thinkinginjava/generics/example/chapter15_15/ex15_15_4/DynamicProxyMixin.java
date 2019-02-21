@@ -6,7 +6,7 @@ import com.thinkinginjava.generics.example.chapter15_15.ex15_15_2.SerialNumbered
 import com.thinkinginjava.generics.example.chapter15_15.ex15_15_2.SerialNumberedImp;
 import com.thinkinginjava.generics.example.chapter15_15.ex15_15_2.TimeStamped;
 import com.thinkinginjava.generics.example.chapter15_15.ex15_15_2.TimeStampedImp;
-import static com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.Tuple.*;
+import static com.thinkinginjava.util.Tuple.*;
 
 /**
  * @author: XueYing.Cao

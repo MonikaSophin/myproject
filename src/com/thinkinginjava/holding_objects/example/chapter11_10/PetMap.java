@@ -1,11 +1,12 @@
 package com.thinkinginjava.holding_objects.example.chapter11_10;
 
-import com.thinkinginjava.holding_objects.example.pets.*;
-import java.util.*;
+import com.thinkinginjava.util.pets.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class PetMap {
   public static void main(String[] args) {
-    Map<String, Pet> petMap = new HashMap<String,Pet>();
+    Map<String, Pet> petMap = new HashMap<>();
     petMap.put("My Cat", new Cat("Molly"));
     petMap.put("My Dog", new Dog("Ginger"));
     petMap.put("My Hamster", new Hamster("Bosco"));

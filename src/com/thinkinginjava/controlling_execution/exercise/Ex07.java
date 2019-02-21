@@ -1,6 +1,6 @@
 package com.thinkinginjava.controlling_execution.exercise;
 
-import com.thinkinginjava.operators.example.chapter3_1.Print;
+import com.thinkinginjava.util.Print;
 
 /**
  * @Author: monika

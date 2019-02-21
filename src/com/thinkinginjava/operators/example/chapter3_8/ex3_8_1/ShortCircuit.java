@@ -1,6 +1,6 @@
 package com.thinkinginjava.operators.example.chapter3_8.ex3_8_1;
 
-import com.thinkinginjava.operators.example.chapter3_1.Print;
+import com.thinkinginjava.util.Print;
 
 public class ShortCircuit {
     static boolean test1(int val1){

@@ -1,8 +1,8 @@
 package com.thinkinginjava.generics.example.chapter15_6;
 
 import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.Amphibian;
-import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.FourTuple;
 import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.Vehicle;
+import com.thinkinginjava.util.FourTuple;
 import java.util.ArrayList;
 
 /**

@@ -1,6 +1,6 @@
 package com.thinkinginjava.access_control.example.chapter6_1;
 
-import static com.thinkinginjava.access_control.example.chapter6_1.mypackage.Print.print;
+import static com.thinkinginjava.util.Print.*;
 
 /**
  * @Author: monika

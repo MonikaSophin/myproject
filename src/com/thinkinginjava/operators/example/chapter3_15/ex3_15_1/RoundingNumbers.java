@@ -1,6 +1,6 @@
 package com.thinkinginjava.operators.example.chapter3_15.ex3_15_1;
 
-import com.thinkinginjava.operators.example.chapter3_1.Print;
+import com.thinkinginjava.util.Print;
 
 /**
  * @Author: monika

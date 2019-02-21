@@ -1,7 +1,7 @@
 package com.thinkinginjava.generics.exercise.chapter15_4;
 
 import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.TupleTest2;
-import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.TwoTuple;
+import com.thinkinginjava.util.TwoTuple;
 
 /**
  * @Author: monika

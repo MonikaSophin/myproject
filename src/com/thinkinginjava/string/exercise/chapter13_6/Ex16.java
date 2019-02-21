@@ -1,7 +1,6 @@
 package com.thinkinginjava.string.exercise.chapter13_6;
 
-import com.thinkinginjava.holding_objects.example.chapter11_9.TextFile;
-
+import com.thinkinginjava.util.TextFile;
 import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

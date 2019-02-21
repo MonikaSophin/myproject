@@ -1,7 +1,7 @@
-package com.thinkinginjava.holding_objects.example.chapter11_6;//: holding/CrossContainerIteration.java
+package com.thinkinginjava.holding_objects.example.chapter11_6;
 
-import com.thinkinginjava.holding_objects.example.pets.Pet;
-import com.thinkinginjava.holding_objects.example.pets.Pets;
+import com.thinkinginjava.util.pets.Pet;
+import com.thinkinginjava.util.pets.Pets;
 
 import java.util.*;
 

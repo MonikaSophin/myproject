@@ -1,5 +1,7 @@
 package com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util;
 
+import com.thinkinginjava.util.FiveTuple;
+
 /**
  * @Author: monika
  * @Date: 2019/2/4 22:42

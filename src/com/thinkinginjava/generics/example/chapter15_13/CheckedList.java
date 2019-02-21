@@ -1,8 +1,8 @@
 package com.thinkinginjava.generics.example.chapter15_13;
 
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Cat;
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Dog;
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Pet;
+import com.thinkinginjava.util.pets.Cat;
+import com.thinkinginjava.util.pets.Dog;
+import com.thinkinginjava.util.pets.Pet;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -41,7 +41,7 @@ public class CheckedList {
 }
 /**output:
  * java.lang.ClassCastException: Attempt to insert class
- *  com.thinkinginjava.type_information.example.chapter14_3.pets.Cat
+ *  com.thinkinginjava.util.pets.Cat
  *  element into collection with element type class
- *  com.thinkinginjava.type_information.example.chapter14_3.pets.Dog
+ *  com.thinkinginjava.util.pets.Dog
  */

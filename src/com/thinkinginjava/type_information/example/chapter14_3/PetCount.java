@@ -1,6 +1,6 @@
 package com.thinkinginjava.type_information.example.chapter14_3;
 
-import com.thinkinginjava.type_information.example.chapter14_3.pets.*;
+import com.thinkinginjava.util.pets.*;
 import java.util.*;
 
 public class PetCount {

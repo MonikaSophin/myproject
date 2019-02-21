@@ -1,6 +1,6 @@
 package com.thinkinginjava.holding_objects.example.chapter11_10;
 
-import com.thinkinginjava.holding_objects.example.pets.*;
+import com.thinkinginjava.util.pets.*;
 import java.util.*;
 
 public class MapOfList {

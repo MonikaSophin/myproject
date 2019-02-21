@@ -1,5 +1,5 @@
 package com.thinkinginjava.holding_objects.example.chapter11_5;
-import com.thinkinginjava.holding_objects.example.pets.*;
+import com.thinkinginjava.util.pets.*;
 
 import java.util.*;
 

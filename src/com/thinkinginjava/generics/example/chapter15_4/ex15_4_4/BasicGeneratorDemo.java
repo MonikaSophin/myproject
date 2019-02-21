@@ -1,6 +1,6 @@
 package com.thinkinginjava.generics.example.chapter15_4.ex15_4_4;
 
-import com.thinkinginjava.generics.example.chapter15_3.coffee.Generator;
+import com.thinkinginjava.util.Generator;
 
 /**
  * @Author: monika

@@ -1,7 +1,7 @@
 package com.thinkinginjava.generics.example.chapter15_11.ex15_11_1;
 
-import com.thinkinginjava.generics.example.chapter15_11.ex15_11_1.util.RandomGenerator;
-import com.thinkinginjava.generics.example.chapter15_3.coffee.Generator;
+import com.thinkinginjava.util.Generator;
+import com.thinkinginjava.util.RandomGenerator;
 
 class FArray {
   public static <T> T[] fill(T[] a, Generator<T> gen) {

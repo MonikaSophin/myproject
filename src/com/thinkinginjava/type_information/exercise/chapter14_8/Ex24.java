@@ -1,7 +1,7 @@
 package com.thinkinginjava.type_information.exercise.chapter14_8;
 
 import com.thinkinginjava.type_information.example.chapter14_4.Factory;
-import com.thinkinginjava.type_information.example.chapter14_8.Null;
+import com.thinkinginjava.util.Null;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,7 +66,7 @@ class OilFilter extends Filter {
     }
 }
 
-class NullFilter extends Filter implements Null{
+class NullFilter extends Filter implements Null {
     public static class Factory1 implements Factory<NullFilter> {
         public NullFilter create() { return new NullFilter(); }
     }

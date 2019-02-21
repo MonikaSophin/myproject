@@ -1,6 +1,6 @@
 package com.thinkinginjava.holding_objects.example.chapter11_12;
 
-import com.thinkinginjava.holding_objects.example.pets.*;
+import com.thinkinginjava.util.pets.*;
 import java.util.*;
 
 public class InterfaceVsIterator {

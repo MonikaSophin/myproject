@@ -1,9 +1,7 @@
-//: generics/coffee/CoffeeGenerator.java
-// Generate different types of Coffee:
 package com.thinkinginjava.type_information.exercise.chapter14_3.coffee;
 
 import java.util.*;
-import com.thinkinginjava.type_information.example.chapter14_3.ex14_3_2.utils.Generator;
+import com.thinkinginjava.util.Generator;
 
 public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
   private Class[] types = { Latte.class, Mocha.class,

@@ -1,6 +1,6 @@
 package com.thinkinginjava.holding_objects.exercise.chapter11_10;
 
-import com.thinkinginjava.holding_objects.example.chapter11_9.TextFile;
+import com.thinkinginjava.util.TextFile;
 
 import java.util.*;
 

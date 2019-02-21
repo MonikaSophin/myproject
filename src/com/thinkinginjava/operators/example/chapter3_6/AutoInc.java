@@ -1,6 +1,6 @@
 package com.thinkinginjava.operators.example.chapter3_6;
 
-import com.thinkinginjava.operators.example.chapter3_1.Print;
+import com.thinkinginjava.util.Print;
 
 public class AutoInc {
     public static void main(String[] args) {

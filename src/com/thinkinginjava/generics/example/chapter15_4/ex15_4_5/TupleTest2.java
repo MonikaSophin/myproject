@@ -1,8 +1,13 @@
 package com.thinkinginjava.generics.example.chapter15_4.ex15_4_5;
 
-import static com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.Tuple.*;
-
-import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.*;
+import static com.thinkinginjava.util.Tuple.*;
+import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.Amphibian;
+import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.SixTuple;
+import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.Vehicle;
+import com.thinkinginjava.util.FiveTuple;
+import com.thinkinginjava.util.FourTuple;
+import com.thinkinginjava.util.ThreeTuple;
+import com.thinkinginjava.util.TwoTuple;
 
 /**
  * @Author: monika

@@ -1,6 +1,6 @@
 package com.thinkinginjava.holding_objects.example.chapter11_14;
 
-import com.thinkinginjava.holding_objects.example.chapter11_14.utils.ContainerMethodDifferences;
+import com.thinkinginjava.util.ContainerMethodDifferences;
 
 public class ContainerMethods {
   public static void main(String[] args) {

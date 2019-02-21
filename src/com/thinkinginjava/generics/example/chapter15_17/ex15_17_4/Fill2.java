@@ -2,9 +2,10 @@ package com.thinkinginjava.generics.example.chapter15_17.ex15_17_4;
 
 import com.thinkinginjava.generics.example.chapter15_17.ex15_17_2.SimpleQueue;
 import com.thinkinginjava.generics.example.chapter15_3.coffee.Coffee;
-import com.thinkinginjava.generics.example.chapter15_3.coffee.Generator;
 import com.thinkinginjava.generics.example.chapter15_3.coffee.Latte;
 import com.thinkinginjava.generics.example.chapter15_3.coffee.Mocha;
+import com.thinkinginjava.util.Generator;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;

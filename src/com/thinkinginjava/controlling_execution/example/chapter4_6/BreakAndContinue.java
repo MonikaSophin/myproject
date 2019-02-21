@@ -1,6 +1,6 @@
 package com.thinkinginjava.controlling_execution.example.chapter4_6;
 
-import com.thinkinginjava.controlling_execution.example.Range;
+import com.thinkinginjava.util.Range;
 
 /**
  * @Author: monika

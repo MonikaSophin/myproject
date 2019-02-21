@@ -1,5 +1,7 @@
 package com.thinkinginjava.string.example.chapter13_5.ex13_5_6;
 
+import com.thinkinginjava.util.BinaryFile;
+
 /**
  * @Author: monika
  * @Date: 2019/1/1 14:46

@@ -1,7 +1,6 @@
 package com.thinkinginjava.Initialize_clean.example.chapter5_8;
 
-import com.thinkinginjava.Initialize_clean.example.Print;
-
+import com.thinkinginjava.util.Print;
 import java.util.Arrays;
 import java.util.Random;
 

@@ -1,6 +1,6 @@
 package com.thinkinginjava.holding_objects.exercise.chapter11_8;
 
-import com.thinkinginjava.holding_objects.example.chapter11_8.Stack;
+import com.thinkinginjava.util.Stack;
 
 /**
  * @Author: monika

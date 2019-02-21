@@ -1,7 +1,7 @@
 package com.thinkinginjava.generics.exercise.chapter15_10;
 
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Cat;
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Pet;
+import com.thinkinginjava.util.pets.Cat;
+import com.thinkinginjava.util.pets.Pet;
 
 /**
  * @author: XueYing.Cao

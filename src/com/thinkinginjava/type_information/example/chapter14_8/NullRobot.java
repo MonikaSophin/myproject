@@ -1,5 +1,6 @@
 package com.thinkinginjava.type_information.example.chapter14_8;
 
+import com.thinkinginjava.util.Null;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;

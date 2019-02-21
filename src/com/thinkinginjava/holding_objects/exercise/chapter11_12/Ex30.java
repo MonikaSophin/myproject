@@ -1,8 +1,8 @@
 package com.thinkinginjava.holding_objects.exercise.chapter11_12;
 
 import com.thinkinginjava.holding_objects.example.chapter11_12.InterfaceVsIterator;
-import com.thinkinginjava.holding_objects.example.pets.Pet;
-import com.thinkinginjava.holding_objects.example.pets.Pets;
+import com.thinkinginjava.util.pets.Pet;
+import com.thinkinginjava.util.pets.Pets;
 import java.util.Collection;
 import java.util.Iterator;
 

@@ -2,7 +2,8 @@ package com.thinkinginjava.generics.exercise.chapter15_4;
 
 import com.thinkinginjava.generics.example.chapter15_3.coffee.Coffee;
 import com.thinkinginjava.generics.example.chapter15_3.coffee.CoffeeGenerator;
-import com.thinkinginjava.generics.example.chapter15_3.coffee.Generator;
+import com.thinkinginjava.util.Generator;
+
 import java.util.*;
 
 /**

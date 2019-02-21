@@ -1,6 +1,6 @@
 package com.thinkinginjava.operators.example.chapter3_4;
 
-import com.thinkinginjava.operators.example.chapter3_1.Print;
+import com.thinkinginjava.util.Print;
 
 class Tank{
     int level;

@@ -1,6 +1,6 @@
 package com.thinkinginjava.Initialize_clean.example.chapter5_2.ex5_2_2;
 
-import com.thinkinginjava.Initialize_clean.example.Print;
+import com.thinkinginjava.util.Print;
 
 /**
  * @Author: monika

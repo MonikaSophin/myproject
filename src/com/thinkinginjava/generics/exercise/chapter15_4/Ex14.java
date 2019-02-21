@@ -1,8 +1,8 @@
 package com.thinkinginjava.generics.exercise.chapter15_4;
 
-import com.thinkinginjava.generics.example.chapter15_3.coffee.Generator;
 import com.thinkinginjava.generics.example.chapter15_4.ex15_4_4.BasicGenrator;
 import com.thinkinginjava.generics.example.chapter15_4.ex15_4_4.CountedObject;
+import com.thinkinginjava.util.Generator;
 
 /**
  * @Author: monika

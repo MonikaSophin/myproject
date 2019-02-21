@@ -1,4 +1,5 @@
 package com.thinkinginjava.string.example.chapter13_3.coffee;
+import com.thinkinginjava.util.Generator;
 import java.util.*;
 
 public class CoffeeGenerator

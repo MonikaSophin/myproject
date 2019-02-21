@@ -1,7 +1,7 @@
 package com.thinkinginjava.generics.example.chapter15_6;
 
-import com.thinkinginjava.generics.example.chapter15_3.coffee.Generator;
 import com.thinkinginjava.generics.example.chapter15_4.ex15_4_3.Generators;
+import com.thinkinginjava.util.Generator;
 import java.util.ArrayList;
 import java.util.Random;
 

@@ -1,9 +1,9 @@
 package com.thinkinginjava.type_information.example.chapter14_3.ex14_3_2;
 
-import com.thinkinginjava.type_information.example.chapter14_3.ex14_3_1.LiteralPetCreator;
-import com.thinkinginjava.type_information.example.chapter14_3.ex14_3_1.Pets;
-import com.thinkinginjava.type_information.example.chapter14_3.ex14_3_2.utils.MapData;
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Pet;
+import com.thinkinginjava.util.pets.LiteralPetCreator;
+import com.thinkinginjava.util.pets.Pet;
+import com.thinkinginjava.util.MapData;
+import com.thinkinginjava.util.pets.Pets;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
 package com.thinkinginjava.controlling_execution.example.chapter4_5;
 
-import com.thinkinginjava.controlling_execution.example.Print;
+import com.thinkinginjava.util.Print;
 
 /**
  * @Author: monika

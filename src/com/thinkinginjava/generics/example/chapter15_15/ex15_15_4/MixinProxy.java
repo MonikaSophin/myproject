@@ -1,6 +1,6 @@
 package com.thinkinginjava.generics.example.chapter15_15.ex15_15_4;
 
-import com.thinkinginjava.generics.example.chapter15_4.ex15_4_5.util.TwoTuple;
+import com.thinkinginjava.util.TwoTuple;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;

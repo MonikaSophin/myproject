@@ -1,7 +1,6 @@
 package com.thinkinginjava.operators.example.chapter3_5;
 
-import com.thinkinginjava.operators.example.chapter3_1.Print;
-
+import com.thinkinginjava.util.Print;
 import java.util.Random;
 
 public class MathOps {

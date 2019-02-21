@@ -1,6 +1,7 @@
 package com.thinkinginjava.type_information.example.chapter14_3.ex14_3_1;
 
 import com.thinkinginjava.type_information.example.chapter14_3.PetCount;
+import com.thinkinginjava.util.pets.Pets;
 
 /**
  * @Author: monika

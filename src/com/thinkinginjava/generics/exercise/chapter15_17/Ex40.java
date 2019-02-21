@@ -1,9 +1,8 @@
 package com.thinkinginjava.generics.exercise.chapter15_17;
 
-import com.thinkinginjava.generics.exercise.chapter15_17.pets.Dog;
-import com.thinkinginjava.generics.exercise.chapter15_17.pets.Pet;
-import com.thinkinginjava.generics.exercise.chapter15_17.pets.Pets;
-
+import com.thinkinginjava.util.pets.Dog;
+import com.thinkinginjava.util.pets.Pet;
+import com.thinkinginjava.util.pets.Pets;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.thinkinginjava.generics.example.chapter15_4.ex15_4_1;
 
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Person;
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Pet;
-
+import com.thinkinginjava.util.pets.Person;
+import com.thinkinginjava.util.pets.Pet;
+import com.thinkinginjava.util.New;
 import java.util.List;
 import java.util.Map;
 

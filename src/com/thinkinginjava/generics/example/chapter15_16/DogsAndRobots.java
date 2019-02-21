@@ -1,6 +1,6 @@
 package com.thinkinginjava.generics.example.chapter15_16;
 
-import com.thinkinginjava.type_information.example.chapter14_3.pets.Dog;
+import com.thinkinginjava.util.pets.Dog;
 
 /**
  * @author: XueYing.Cao

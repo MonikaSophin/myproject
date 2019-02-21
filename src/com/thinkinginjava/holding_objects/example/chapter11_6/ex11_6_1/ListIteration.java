@@ -1,6 +1,6 @@
-package com.thinkinginjava.holding_objects.example.chapter11_6.ex11_6_1;//: holding/ListIteration.java
+package com.thinkinginjava.holding_objects.example.chapter11_6.ex11_6_1;
 
-import com.thinkinginjava.holding_objects.example.pets.*;
+import com.thinkinginjava.util.pets.*;
 import java.util.*;
 
 /**

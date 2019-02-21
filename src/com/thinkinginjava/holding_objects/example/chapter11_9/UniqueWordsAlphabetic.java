@@ -1,5 +1,6 @@
 package com.thinkinginjava.holding_objects.example.chapter11_9;//: holding/UniqueWordsAlphabetic.java
 // Producing an alphabetic listing.
+import com.thinkinginjava.util.TextFile;
 import java.util.*;
 
 public class UniqueWordsAlphabetic {

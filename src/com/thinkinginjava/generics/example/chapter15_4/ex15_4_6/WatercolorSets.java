@@ -1,8 +1,8 @@
 package com.thinkinginjava.generics.example.chapter15_4.ex15_4_6;
 
+import com.thinkinginjava.util.Sets;
 import java.util.EnumSet;
 import java.util.Set;
-import com.thinkinginjava.generics.example.chapter15_4.ex15_4_6.util.Sets;
 import static com.thinkinginjava.generics.example.chapter15_4.ex15_4_6.Watercolors.*;
 
 /**

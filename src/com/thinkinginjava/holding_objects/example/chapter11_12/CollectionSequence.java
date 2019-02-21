@@ -1,10 +1,10 @@
 package com.thinkinginjava.holding_objects.example.chapter11_12;
 
-import com.thinkinginjava.holding_objects.example.pets.*;
-import java.util.*;
+import com.thinkinginjava.util.pets.*;
+import java.util.AbstractCollection;
+import java.util.Iterator;
 
-public class CollectionSequence
-extends AbstractCollection<Pet> {
+public class CollectionSequence extends AbstractCollection<Pet> {
   private Pet[] pets = Pets.createArray(8);
   public int size() { return pets.length; }
   public Iterator<Pet> iterator() {

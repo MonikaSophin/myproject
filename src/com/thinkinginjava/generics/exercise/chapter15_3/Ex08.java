@@ -1,7 +1,7 @@
 package com.thinkinginjava.generics.exercise.chapter15_3;
 
 import com.thinkinginjava.generics.exercise.chapter15_3.guys.*;
-
+import com.thinkinginjava.util.Generator;
 import java.util.Iterator;
 import java.util.Random;
 

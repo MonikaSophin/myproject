@@ -1,7 +1,7 @@
 //: generics/coffee/CoffeeGenerator.java
 // Generate different types of Coffee:
 package com.thinkinginjava.generics.example.chapter15_3.coffee;
-
+import com.thinkinginjava.util.Generator;
 import java.util.Iterator;
 import java.util.Random;
 

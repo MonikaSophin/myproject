@@ -6,8 +6,7 @@ package com.thinkinginjava.string.example.chapter13_6.ex13_6_6;
     the special delimiters, then process the
     extracted block. !*/
 
-import com.thinkinginjava.string.TextFile;
-
+import com.thinkinginjava.util.TextFile;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 

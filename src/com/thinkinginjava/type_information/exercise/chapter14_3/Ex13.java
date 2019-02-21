@@ -1,6 +1,6 @@
 package com.thinkinginjava.type_information.exercise.chapter14_3;
 
-import com.thinkinginjava.type_information.example.chapter14_3.ex14_3_3.TypeCounter;
+import com.thinkinginjava.util.TypeCounter;
 
 /**
  * @Author: monika
