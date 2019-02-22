@@ -133,8 +133,7 @@ public class Countries {
     {"URUGUAY","Montevideo"}, {"VENEZUELA","Caracas"},
   };
   // Use AbstractMap by implementing entrySet()
-  private static class FlyweightMap
-  extends AbstractMap<String,String> {
+  private static class FlyweightMap extends AbstractMap<String,String> {
     private static class Entry
     implements Map.Entry<String,String> {
       int index;
@@ -152,8 +151,7 @@ public class Countries {
       }
     }
     // Use AbstractSet by implementing size() & iterator()
-    static class EntrySet
-    extends AbstractSet<Map.Entry<String,String>> {
+    static class EntrySet extends AbstractSet<Map.Entry<String,String>> {
       private int size;
       EntrySet(int size) {
         if(size < 0)
