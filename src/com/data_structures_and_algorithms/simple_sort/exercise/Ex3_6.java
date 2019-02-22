@@ -1,7 +1,5 @@
 package com.data_structures_and_algorithms.simple_sort.exercise;
 
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-
 /**
  * @author: XueYing.Cao
  * @date: 2018/12/28
