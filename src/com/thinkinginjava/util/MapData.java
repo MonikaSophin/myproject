@@ -20,13 +20,13 @@ public class MapData<K,V> extends LinkedHashMap<K,V> {
       put(genK.next(), genV.next());
     }
   }
-  // 密钥生成器和单个值:
+  // Key generator和单个值:
   public MapData(Generator<K> genK, V value, int quantity){
     for(int i = 0; i < quantity; i++) {
       put(genK.next(), value);
     }
   }
-  // 一个Iterable和一个值generator:
+  // 一个Iterable和一个value generator:
   public MapData(Iterable<K> genK, Generator<V> genV) {
     for(K key : genK) {
       put(key, genV.next());
@@ -40,9 +40,7 @@ public class MapData<K,V> extends LinkedHashMap<K,V> {
   }
   // 通用便利方法:
   public static <K,V> MapData<K,V>
-  map(Generator<Pair<K,V>> gen, int quantity) {
-    return new MapData<K,V>(gen, quantity);
-  }
+  map(Generator<Pair<K,V>> gen, int quantity) {return new MapData<K,V>(gen, quantity); }
   public static <K,V> MapData<K,V>
   map(Generator<K> genK, Generator<V> genV, int quantity) {
     return new MapData<K,V>(genK, genV, quantity);

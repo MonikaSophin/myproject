@@ -134,8 +134,7 @@ public class Countries {
   };
   // Use AbstractMap by implementing entrySet()
   private static class FlyweightMap extends AbstractMap<String,String> {
-    private static class Entry
-    implements Map.Entry<String,String> {
+    private static class Entry implements Map.Entry<String,String> {
       int index;
       Entry(int index) { this.index = index; }
       public boolean equals(Object o) {
@@ -203,26 +202,25 @@ public class Countries {
   public static Map<String,String> capitals(int size) {
     return select(size); // A partial map
   }
-  static List<String> names =
-    new ArrayList<String>(map.keySet());
+  static List<String> names = new ArrayList<>(map.keySet());
   // All the names:
   public static List<String> names() { return names; }
   // A partial list:
   public static List<String> names(int size) {
-    return new ArrayList<String>(select(size).keySet());
+    return new ArrayList<>(select(size).keySet());
   }
   public static void main(String[] args) {
     print(capitals(10));
     print(names(10));
-    print(new HashMap<String,String>(capitals(3)));
-    print(new LinkedHashMap<String,String>(capitals(3)));
-    print(new TreeMap<String,String>(capitals(3)));
-    print(new Hashtable<String,String>(capitals(3)));
-    print(new HashSet<String>(names(6)));
-    print(new LinkedHashSet<String>(names(6)));
-    print(new TreeSet<String>(names(6)));
-    print(new ArrayList<String>(names(6)));
-    print(new LinkedList<String>(names(6)));
+    print(new HashMap<>(capitals(3)));
+    print(new LinkedHashMap<>(capitals(3)));
+    print(new TreeMap<>(capitals(3)));
+    print(new Hashtable<>(capitals(3)));
+    print(new HashSet<>(names(6)));
+    print(new LinkedHashSet<>(names(6)));
+    print(new TreeSet<>(names(6)));
+    print(new ArrayList<>(names(6)));
+    print(new LinkedList<>(names(6)));
     print(capitals().get("BRAZIL"));
   }
 } /* Output:
