@@ -132,7 +132,8 @@ public class Countries {
     {"TRINIDAD AND TOBAGO","Port of Spain"},
     {"URUGUAY","Montevideo"}, {"VENEZUELA","Caracas"},
   };
-  // Use AbstractMap by implementing entrySet()
+
+  // 通过实现entrySet()来使用AbstractMap
   private static class FlyweightMap extends AbstractMap<String,String> {
     private static class Entry implements Map.Entry<String,String> {
       int index;
@@ -149,22 +150,22 @@ public class Countries {
         return DATA[index][0].hashCode();
       }
     }
-    // Use AbstractSet by implementing size() & iterator()
+
+    // 通过实现size()和iterator()来使用AbstractSet
     static class EntrySet extends AbstractSet<Map.Entry<String,String>> {
       private int size;
       EntrySet(int size) {
         if(size < 0)
           this.size = 0;
-        // Can't be any bigger than the array:
+        // 不能比list大:
         else if(size > DATA.length)
           this.size = DATA.length;
         else
           this.size = size;
       }
       public int size() { return size; }
-      private class Iter
-      implements Iterator<Map.Entry<String,String>> {
-        // Only one Entry object per Iterator:
+      private class Iter implements Iterator<Map.Entry<String,String>> {
+        // 每个迭代器只有一个Entry对象:
         private Entry entry = new Entry(-1);
         public boolean hasNext() {
           return entry.index < size - 1;
@@ -181,13 +182,16 @@ public class Countries {
         return new Iter();
       }
     }
+
     private static Set<Map.Entry<String,String>> entries =
       new EntrySet(DATA.length);
     public Set<Map.Entry<String,String>> entrySet() {
       return entries;
     }
+
   }
-  // Create a partial map of 'size' countries:
+
+  // 创建“size”国家/地区的部分map:
   static Map<String,String> select(final int size) {
     return new FlyweightMap() {
       public Set<Map.Entry<String,String>> entrySet() {
@@ -195,6 +199,7 @@ public class Countries {
       }
     };
   }
+
   static Map<String,String> map = new FlyweightMap();
   public static Map<String,String> capitals() {
     return map; // The entire map
@@ -203,12 +208,13 @@ public class Countries {
     return select(size); // A partial map
   }
   static List<String> names = new ArrayList<>(map.keySet());
-  // All the names:
+  // 所有的名字:
   public static List<String> names() { return names; }
-  // A partial list:
+  // 部分清单:
   public static List<String> names(int size) {
     return new ArrayList<>(select(size).keySet());
   }
+
   public static void main(String[] args) {
     print(capitals(10));
     print(names(10));
