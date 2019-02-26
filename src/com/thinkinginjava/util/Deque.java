@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * 从LinkedList创建Deque.
  */
 public class Deque<T> {
-  private LinkedList<T> deque = new LinkedList<T>();
+  private LinkedList<T> deque = new LinkedList<>();
   public void addFirst(T e) { deque.addFirst(e); }
   public void addLast(T e) { deque.addLast(e); }
   public T getFirst() { return deque.getFirst(); }

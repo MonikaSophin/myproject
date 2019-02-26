@@ -22,9 +22,7 @@ public class CountingMapData extends AbstractMap<Integer,String> {
     }
     public Integer getKey() { return index; }
     public String getValue() {
-      return
-        chars[index % chars.length] +
-        Integer.toString(index / chars.length);
+      return String.format("%s%s", chars[index % chars.length], index/chars.length);
     }
     public String setValue(String value) {
       throw new UnsupportedOperationException();
@@ -34,9 +32,8 @@ public class CountingMapData extends AbstractMap<Integer,String> {
     }
   }
   public Set<Map.Entry<Integer,String>> entrySet() {
-    // LinkedHashSet retains initialization order:
-    Set<Map.Entry<Integer,String>> entries =
-      new LinkedHashSet<Map.Entry<Integer,String>>();
+    // LinkedHashSet保留初始化顺序:
+    Set<Map.Entry<Integer,String>> entries = new LinkedHashSet<>();
     for(int i = 0; i < size; i++)
       entries.add(new Entry(i));
     return entries;
