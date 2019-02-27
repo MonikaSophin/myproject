@@ -4,11 +4,9 @@ import com.thinkinginjava.util.Countries;
 
 import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 /**
@@ -59,6 +57,13 @@ public class SlowMap<K, V> extends AbstractMap<K, V> {
         System.out.println(m);
         System.out.println(m.get("ANGOLA"));
         System.out.println(m.entrySet());
+
+        SlowMap<Integer, String> map = new SlowMap<>();
+        map.put(1, "1");
+        map.put(1, "1");
+        map.put(2, "2");
+        map.put(3, "3");
+        System.out.println(map);
     }
 }
 /**output:

@@ -29,8 +29,8 @@ public class Ex13 {
             }
             map.put(s, count);
         }
-        System.out.println(map);
 
+        System.out.println(map);
     }
 }
 /**output:
