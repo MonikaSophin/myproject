@@ -7,8 +7,7 @@ package com.thinkinginjava.inner_classes.example.chapter10_8.ex10_8_2;
 public class GreenhouseController {
   public static void main(String[] args) {
     GreenhouseControls gc = new GreenhouseControls();
-    // Instead of hard-wiring, you could parse
-    // configuration information from a text file here:
+    // 可以在此处从文本文件中解析配置信息，而不是硬编码:
     gc.addEvent(gc.new Bell(900));
     Event[] eventList = {
       gc.new ThermostatNight(0),
