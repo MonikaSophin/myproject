@@ -11,25 +11,22 @@ import java.util.regex.Pattern;
  * 生成一系列与a匹配的File对象，在本地目录中使用正则表达式或者走一个目录树
  */
 public final class Directory {
-  public static File[]
-  local(File dir, final String regex) {
+  public static File[] local(File dir, final String regex) {
     return dir.listFiles(new FilenameFilter() {
       private Pattern pattern = Pattern.compile(regex);
       public boolean accept(File dir, String name) {
-        return pattern.matcher(
-          new File(name).getName()).matches();
+        return pattern.matcher(new File(name).getName()).matches();
       }
     });
   }
-  public static File[]
-  local(String path, final String regex) { // Overloaded
+  public static File[] local(String path, final String regex) { // Overloaded
     return local(new File(path), regex);
   }
-  // A two-tuple for returning a pair of objects:
+  // 返回一对object的二元组:
   public static class TreeInfo implements Iterable<File> {
     public List<File> files = new ArrayList<>();
     public List<File> dirs = new ArrayList<>();
-    // The default iterable element is the file list:
+    // 默认的可迭代元素是文件列表:
     public Iterator<File> iterator() {
       return files.iterator();
     }
@@ -42,12 +39,10 @@ public final class Directory {
         "\n\nfiles: " + PPrint.pformat(files);
     }
   }
-  public static TreeInfo
-  walk(String start, String regex) { // Begin recursion
+  public static TreeInfo walk(String start, String regex) { // Begin recursion
     return recurseDirs(new File(start), regex);
   }
-  public static TreeInfo
-  walk(File start, String regex) { // Overloaded
+  public static TreeInfo walk(File start, String regex) { // Overloaded
     return recurseDirs(start, regex);
   }
   public static TreeInfo walk(File start) { // Everything
