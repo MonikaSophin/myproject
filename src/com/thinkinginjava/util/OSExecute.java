@@ -10,8 +10,7 @@ public class OSExecute {
   public static void command(String command) {
     boolean err = false;
     try {
-      Process process =
-        new ProcessBuilder(command.split(" ")).start();
+      Process process = new ProcessBuilder(command.split(" ")).start();
       BufferedReader results = new BufferedReader(
         new InputStreamReader(process.getInputStream()));
       String s;

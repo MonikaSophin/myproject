@@ -34,8 +34,7 @@ public class ProcessFiles {
       throw new RuntimeException(e);
     }
   }
-  public void
-  processDirectoryTree(File root) throws IOException {
+  public void processDirectoryTree(File root) throws IOException {
     for(File file : Directory.walk(
         root.getAbsolutePath(), ".*\\." + ext))
       strategy.process(file.getCanonicalFile());
