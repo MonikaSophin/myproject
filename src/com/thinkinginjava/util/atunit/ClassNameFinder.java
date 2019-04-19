@@ -8,8 +8,7 @@ import java.util.*;
 
 public class ClassNameFinder {
   public static String thisClass(byte[] classBytes) {
-    Map<Integer,Integer> offsetTable =
-      new HashMap<Integer,Integer>();
+    Map<Integer,Integer> offsetTable = new HashMap<>();
     Map<Integer,String> classNameTable =
       new HashMap<Integer,String>();
     try {
