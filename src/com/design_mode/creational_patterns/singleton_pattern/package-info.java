@@ -1,7 +1,7 @@
 package com.design_mode.creational_patterns.singleton_pattern;
 
 /**
- *  3.单例模式
+ *  1.3 单例模式
  *
  *    定义：是 Java 中最简单的设计模式之一。这种类型的设计模式属于创建型模式，
  *    它提供了一种创建对象的最佳方式。这种模式涉及到一个单一的类，该类负责创建

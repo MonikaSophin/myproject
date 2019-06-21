@@ -1,7 +1,7 @@
 package com.design_mode.behavioral_patterns.observer_pattern;
 
 /**
- *  7.观察者模式
+ *  3.7 观察者模式
  *
  *    定义：
  *        在对象之间定义一对多的依赖，这样一来，当一个对象改变状态
