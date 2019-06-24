@@ -1,4 +1,7 @@
-package com.design_mode.structural_patterns.adapter_pattern;
+package com.design_mode.structural_patterns.adapter_pattern.adapter;
+
+import com.design_mode.structural_patterns.adapter_pattern.Voltage220V;
+import com.design_mode.structural_patterns.adapter_pattern.Voltage5V;
 
 /**
  * @author: XueYing.Cao

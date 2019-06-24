@@ -1,5 +1,9 @@
 package com.design_mode.structural_patterns.adapter_pattern;
 
+import com.design_mode.structural_patterns.adapter_pattern.adapter.ClassAdapter;
+import com.design_mode.structural_patterns.adapter_pattern.adapter.InterfaceAdapter;
+import com.design_mode.structural_patterns.adapter_pattern.adapter.ObjectAdapter;
+
 /**
  * @author: XueYing.Cao
  * @date: 2019/6/24
