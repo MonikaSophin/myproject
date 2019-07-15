@@ -17,7 +17,6 @@ public class MemcacheClientManager {
             // 本地连接 Memcached 服务
             memcachedClient = new MemcachedClient(
                     new InetSocketAddress("127.0.0.1", 11211));
-            System.out.println("连接Memcached服务成功!");
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
