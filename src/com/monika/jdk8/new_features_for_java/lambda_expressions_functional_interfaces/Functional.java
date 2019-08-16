@@ -12,7 +12,24 @@ package com.monika.jdk8.new_features_for_java.lambda_expressions_functional_inte
  * 并且能够明确声明接口作为函数式接口的意图，Java 8增加了一种特殊的注解@FunctionalInterface
  * （Java 8中所有类库的已有接口都添加了@FunctionalInterface注解）。让我们看一下这种函数式接口的定义：
  */
-@FunctionalInterface
-public interface Functional {
-    void method();
+//@FunctionalInterface //这个注解类似@Override，若接口中不是唯一的抽象方法该注释会报错。
+public interface Functional<T> {
+    void method(T t);
+}
+
+/**
+ * 测试自定义函数接口
+ */
+class FunctionalTest {
+
+    private static void consumer(Functional<String> functional) {
+        functional.method("测试");
+    }
+
+    public static void main(String[] args) {
+        consumer(s -> {
+            System.out.println(s);
+            System.out.println();
+        });
+    }
 }

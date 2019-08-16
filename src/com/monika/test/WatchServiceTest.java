@@ -18,7 +18,7 @@ import java.util.List;
 public class WatchServiceTest {
 
 	public static void main(String[] args) throws IOException {
-		String uri = "d:/eclipse_demo/watchservice";
+		String uri = "d:/";
 		WatchService watchService = FileSystems.getDefault().newWatchService();
 		Path path = Paths.get(uri);
 		path.register(watchService, 
@@ -45,8 +45,8 @@ public class WatchServiceTest {
 			}
 		});
 
-
-		thread.setDaemon(false);//使用用户线程
+		//使用用户线程
+		thread.setDaemon(false);
 		thread.start();
 
 		// 增加jvm关闭的钩子来关闭监听
