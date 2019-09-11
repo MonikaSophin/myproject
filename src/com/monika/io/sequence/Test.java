@@ -3,7 +3,10 @@ package com.monika.io.sequence;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.SequenceInputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
+import java.util.List;
 import java.util.Vector;
 
 /**
@@ -27,11 +30,11 @@ public class Test {
 
         // 将3个InputStream用SequenceInputStream合并成一个InputStream
         Enumeration enumerations;
-        Vector<FileInputStream> vector = new Vector<>();
-        vector.add(fis1);
-        vector.add(fis2);
-        vector.add(fis3);
-        enumerations = vector.elements();
+        List<FileInputStream> list = new ArrayList<>();
+        list.add(fis1);
+        list.add(fis2);
+        list.add(fis3);
+        enumerations = Collections.enumeration(list);
         SequenceInputStream sis = new SequenceInputStream(enumerations);
 
         int c;
