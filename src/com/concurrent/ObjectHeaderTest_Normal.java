@@ -33,6 +33,14 @@ public class ObjectHeaderTest_Normal {
         int hashCode = System.identityHashCode(example);
         System.out.println("hashCode:" + Integer.toHexString(hashCode));
         System.out.println(ClassLayout.parseInstance(example).toPrintable());
+
+
+        int[] ints = new int[3];
+        System.out.println(ClassLayout.parseInstance(ints).toPrintable());
+
+        int intHashCode = System.identityHashCode(ints);
+        System.out.println("int hashCode:" + Integer.toHexString(intHashCode));
+        System.out.println(ClassLayout.parseInstance(ints).toPrintable());
     }
 
     private static void lightweightLocked(Example example) {
