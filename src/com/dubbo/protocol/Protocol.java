@@ -1,15 +1,14 @@
 package com.dubbo.protocol;
 
-import java.net.URL;
+import com.dubbo.common.ProtocolModel;
 
 /**
- * 2020/5/26 23:16
- *
- * @author Sakata Gintoki
- * @version 1.0
- * 模拟dubbo多协议
+ * @author XueYing.Cao
+ * @date 2020/5/27
  */
 public interface Protocol {
-    void start(URL url);
 
+    void start(ProtocolModel protocolModel);
+
+    Object send(ProtocolModel protocolModel);
 }
