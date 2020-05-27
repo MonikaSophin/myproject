@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface Registry {
 
+    //最好采用 url的方式
     void put(ProtocolModel registryModel);
     List<ProtocolModel> get(String interfaceName);
 }

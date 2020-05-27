@@ -10,5 +10,5 @@ public interface Protocol {
 
     void start(ProtocolModel protocolModel);
 
-    Object send(ProtocolModel protocolModel);
+    String send(ProtocolModel protocolModel);
 }

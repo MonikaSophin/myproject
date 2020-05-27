@@ -1,7 +1,5 @@
 package com.dubbo.registry.impl;
 
-import com.dubbo.protocol.Protocol;
-import com.dubbo.registry.Registry;
 import com.dubbo.common.ProtocolModel;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.util.CollectionUtils;
@@ -12,6 +10,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,18 +19,17 @@ import java.util.Map;
  * @author XueYing.Cao
  * @date 2020/5/27
  */
-public class RemoteRegistry implements Registry {
+public class RemoteRegistry {
 
     //    private static final Map<String, List<String>> REGISTRY_MAP = new HashMap<>();
-    private static final Map<String, List<ProtocolModel>> REGISTRY_MAP = new HashMap<>();
+    private static Map<String, List<ProtocolModel>> REGISTRY_MAP = new HashMap<>();
 
-    @Override
-    public void put(ProtocolModel registryModel) {
+    public static void put(ProtocolModel protocolModel) {
 
-        String url = MessageFormat.format("%s://%s:%s/%s", registryModel.getProtocol(),
-                registryModel.getIp(), registryModel.getPort(), registryModel.getServiceName());
-        if (ArrayUtils.isNotEmpty(registryModel.getMethodNames())) {
-            url += "&" + ArrayUtils.toString(registryModel.getMethodNames());
+        String url = MessageFormat.format("{0}://{1}:{2}/{3}", protocolModel.getProtocol(),
+                protocolModel.getIp(), protocolModel.getPort(), protocolModel.getServiceName());
+        if (ArrayUtils.isNotEmpty(protocolModel.getMethodNames())) {
+//            url += "&" + ArrayUtils.toString(protocolModel.getMethodNames());
         }
 
 //        List<String> urls = REGISTRY_MAP.get(registryModel.getServiceName());
@@ -39,17 +37,21 @@ public class RemoteRegistry implements Registry {
 //            urls.add(url);
 //        }
 
-        List<ProtocolModel> urls = REGISTRY_MAP.get(registryModel.getServiceName());
-
-        REGISTRY_MAP.put(registryModel.getServiceName(), urls);
+        List<ProtocolModel> protocolModels = REGISTRY_MAP.get(protocolModel.getServiceName());
+        if (!CollectionUtils.isEmpty(protocolModels)) {
+            protocolModels.add(protocolModel);
+        } else {
+            protocolModels = new ArrayList<>();
+            protocolModels.add(protocolModel);
+        }
+        REGISTRY_MAP.put(protocolModel.getServiceName(), protocolModels);
 
         saveFile();
         System.out.println("registry success! > " + url);
     }
 
-    @Override
-    public List<ProtocolModel> get(String interfaceName) {
-        getFile();
+    public static List<ProtocolModel> get(String interfaceName) {
+        REGISTRY_MAP = getFile();
         return REGISTRY_MAP.get(interfaceName);
     }
 
