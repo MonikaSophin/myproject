@@ -5,5 +5,5 @@ package com.dubbo.service;
  * @date 2020/5/27
  */
 public interface TestService {
-    void sayHello(String name);
+    String sayHello(String name);
 }

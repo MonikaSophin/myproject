@@ -1,7 +1,8 @@
 package com.dubbo.consumer;
 
-import com.dubbo.common.ProtocolModel;
-import com.dubbo.common.ProxyFactory;
+import com.dubbo.common.reference.ExecuteConsumerTask;
+import com.dubbo.common.model.URL;
+import com.dubbo.common.reference.ReferenceConfig;
 import com.dubbo.service.TestService;
 
 /**
@@ -11,7 +12,13 @@ import com.dubbo.service.TestService;
 public class Consumer {
 
     public static void main(String[] args) {
-        TestService testService = ProxyFactory.getProxy(TestService.class);
-        testService.sayHello("xxx");
+
+        URL url = new URL("http", TestService.class.getSimpleName());
+        ReferenceConfig referenceConfig = new ReferenceConfig();
+        referenceConfig.setUrl(url);
+        referenceConfig.setInterfaceClass(TestService.class);
+
+        TestService testService = ExecuteConsumerTask.execute(referenceConfig);
+        System.out.println(testService.sayHello("xxx"));
     }
 }

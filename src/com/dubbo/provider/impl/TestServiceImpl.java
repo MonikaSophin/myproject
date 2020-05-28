@@ -8,7 +8,7 @@ import com.dubbo.service.TestService;
  */
 public class TestServiceImpl implements TestService {
     @Override
-    public void sayHello(String name) {
-        System.out.println("hello " + name);
+    public String sayHello(String name) {
+        return "hello " + name;
     }
 }

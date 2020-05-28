@@ -1,8 +1,5 @@
 package com.dubbo.registry;
 
-import com.dubbo.common.ProtocolModel;
-
-import java.util.List;
 
 /**
  * @author XueYing.Cao
@@ -10,7 +7,4 @@ import java.util.List;
  */
 public interface Registry {
 
-    //最好采用 url的方式
-    void put(ProtocolModel registryModel);
-    List<ProtocolModel> get(String interfaceName);
 }

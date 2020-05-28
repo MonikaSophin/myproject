@@ -1,8 +1,8 @@
 package com.dubbo.protocol.http;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dubbo.common.ProtocolModel;
-import com.dubbo.provider.LocalRegister;
+import com.dubbo.common.model.Invocation;
+import com.dubbo.registry.impl.RemoteRegistry;
 import org.apache.commons.io.IOUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,12 +16,12 @@ public class HttpServerHandler {
     public void handler(HttpServletRequest req, HttpServletResponse resp) {
 
         try {
-            ProtocolModel invocation = JSONObject.parseObject(req.getInputStream(), ProtocolModel.class);
+            Invocation invocation = JSONObject.parseObject(req.getInputStream(), Invocation.class);
 
-            String interfaceName = invocation.getServiceName();
-            Class implClass = LocalRegister.get(interfaceName);
-            Method method = implClass.getMethod(invocation.getMethodNames()[0], invocation.getParamType());
-            String result = (String) method.invoke(implClass.newInstance(), invocation.getParams());
+            String interfaceName = invocation.getInterfaceName();
+            Class implClass = RemoteRegistry.getImpl(interfaceName);
+            Method method = implClass.getMethod(invocation.getMethodNames()[0], invocation.getParameterTypes());
+            String result = (String) method.invoke(implClass.newInstance(), invocation.getParameters());
 
             System.out.println("tomcat:" + result);
             IOUtils.write(result, resp.getOutputStream());

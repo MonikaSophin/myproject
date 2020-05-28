@@ -1,7 +1,9 @@
 package com.dubbo.provider;
+import com.google.common.collect.Lists;
 
 import com.dubbo.common.ProtocolFactory;
-import com.dubbo.common.ProtocolModel;
+import com.dubbo.common.model.URL;
+import com.dubbo.common.service.ServiceConfig;
 import com.dubbo.provider.impl.TestServiceImpl;
 import com.dubbo.registry.impl.RemoteRegistry;
 import com.dubbo.service.TestService;
@@ -15,20 +17,17 @@ public class Provider {
     public static void main(String[] args) {
 
         //  1. 注册服务并暴露服务
-        //  2. 本地注册服务,相当于交给spring去管理
-        //  3. 启动tomcat
+        //  2. 启动tomcat
 
         //这里可以做成多注册中心, 可配置的
-        ProtocolModel protocolModel = new ProtocolModel();
-        protocolModel.setProtocol("http");
-        protocolModel.setIp("localhost");
-        protocolModel.setPort("8080");
-        protocolModel.setServiceName(TestService.class.getName());
-        protocolModel.setMethodNames(new String[]{"sayHello"});
-        RemoteRegistry.put(protocolModel);
+        URL url = new URL("http", "localhost", 8080, TestService.class.getSimpleName());
+        ServiceConfig<TestService> config = new ServiceConfig<>();
+        config.setUrls(Lists.newArrayList(url));
+        config.setInterfaceClass(TestService.class);
+        config.setRefObject(new TestServiceImpl());
 
-        LocalRegister.regist(TestService.class.getName(), TestServiceImpl.class);
+        RemoteRegistry.put(config);
 
-        ProtocolFactory.getProtocol(protocolModel).start(protocolModel);
+        ProtocolFactory.getProtocol(url).start(url);
     }
 }

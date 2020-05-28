@@ -1,7 +1,8 @@
 package com.dubbo.protocol.http;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dubbo.common.ProtocolModel;
+import com.dubbo.common.model.Invocation;
+import com.dubbo.common.model.URL;
 import org.apache.http.HttpEntity;
 import org.apache.http.ParseException;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -15,15 +16,15 @@ import java.io.IOException;
 
 public class HttpClient {
 
-    public String send(ProtocolModel protocolModel) {
+    public String send(URL url, Invocation invocation) {
 
         CloseableHttpClient httpClient = HttpClientBuilder.create().build();
-        String uri = String.format("http://%s:%s/", protocolModel.getIp(), protocolModel.getPort());
+        String uri = String.format("http://%s:%s/", url.getHost(), url.getPort());
         HttpPost httpPost = new HttpPost(uri);
         // 设置报文和通讯格式
         StringEntity stringEntity;
         try {
-            stringEntity = new StringEntity(JSONObject.toJSONString(protocolModel));
+            stringEntity = new StringEntity(JSONObject.toJSONString(invocation));
             stringEntity.setContentEncoding("utf-8");
             stringEntity.setContentType("application/json");
             httpPost.setEntity(stringEntity);

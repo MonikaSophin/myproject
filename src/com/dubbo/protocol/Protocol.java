@@ -1,6 +1,7 @@
 package com.dubbo.protocol;
 
-import com.dubbo.common.ProtocolModel;
+import com.dubbo.common.model.Invocation;
+import com.dubbo.common.model.URL;
 
 /**
  * @author XueYing.Cao
@@ -8,7 +9,7 @@ import com.dubbo.common.ProtocolModel;
  */
 public interface Protocol {
 
-    void start(ProtocolModel protocolModel);
+    void start(URL url);
 
-    String send(ProtocolModel protocolModel);
+    String send(URL url, Invocation invocation);
 }
